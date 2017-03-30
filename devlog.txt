@@ -1,0 +1,16 @@
+***Template***
+firstL -- 2017-03-Date Time
+	What was accomplished
+
+Group -- 2017-03-26 22:01
+	Sketched out the visualization of our data and how we want it to be presented
+
+Group -- 2017-03-27 20:29 
+	Updated our README to explain what our project can do and why it is important
+
+Group -- 2017-03-28 14:46
+	Finished our design plan for the project
+
+jessicaY -- 2017-03-30 12:15
+	Created a basic flask app and the template for the data visualization
+	Wrote functions to read data from the csv and return it as a list to the template
