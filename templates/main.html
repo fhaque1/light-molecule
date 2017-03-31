@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <script src="../d3-src/d3.min.js" charset="utf-8"></script>
+
+    <title>Job Growth in the U.S.</title>
+
+  </head>
+
+
+  <body>
+    <center> <h1>Job Growth: 1977-2013</h1> </center>
+    <svg>
+      <div id="map">
+	<svg id="america" height="600" width="1400" style="border:1px solid black;">
+1
+	  <rect class="state" id="alabama" x="100" y="100" width="100" height="100" style="fill:rgb(255,255,255);stroke-width:2;stroke:rgb(0,0,0)" />
+	  <rect class="state" id="alaska" width="100" height="100" style="fill:rgb(255,255,255);stroke-width:2;stroke:rgb(0,0,0)" />
+	  <rect class="state" id="arizona" width="100" height="100" style="fill:rgb(255,255,255);stroke-width:2;stroke:rgb(0,0,0)" />
+	  <rect class="state" id="arkansas" width="100" height="100" style="fill:rgb(255,255,255);stroke-width:2;stroke:rgb(0,0,0)" />
+	  <rect class="state" id="california" width="100" height="100" style="fill:rgb(255,255,255);stroke-width:2;stroke:rgb(0,0,0)" />
+2
+	  <rect class="state" id="colorado" width="100" height="100" style="fill:rgb(255,255,255);stroke-width:2;stroke:rgb(0,0,0)" />
+	  <rect class="state" id="connecticut" width="100" height="100" style="fill:rgb(255,255,255);stroke-width:2;stroke:rgb(0,0,0)" />
+	  <rect class="state" id="delaware" width="100" height="100" style="fill:rgb(255,255,255);stroke-width:2;stroke:rgb(0,0,0)" />
+	  <rect class="state" id="florida" width="100" height="100" style="fill:rgb(255,255,255);stroke-width:2;stroke:rgb(0,0,0)" />
+	  <rect class="state" id="georgia" width="100" height="100" style="fill:rgb(255,255,255);stroke-width:2;stroke:rgb(0,0,0)" />
+3
+	  <rect class="state" id="hawaii" width="100" height="100" style="fill:rgb(255,255,255);stroke-width:2;stroke:rgb(0,0,0)" />
+	  <rect class="state" id="idaho" width="100" height="100" style="fill:rgb(255,255,255);stroke-width:2;stroke:rgb(0,0,0)" />
+	  <rect class="state" id="illinois" width="100" height="100" style="fill:rgb(255,255,255);stroke-width:2;stroke:rgb(0,0,0)" />
+	  <rect class="state" id="indiana" width="100" height="100" style="fill:rgb(255,255,255);stroke-width:2;stroke:rgb(0,0,0)" />
+	  <rect class="state" id="iowa" width="100" height="100" style="fill:rgb(255,255,255);stroke-width:2;stroke:rgb(0,0,0)" />
+4
+	  <rect class="state" id="kansas" width="100" height="100" style="fill:rgb(255,255,255);stroke-width:2;stroke:rgb(0,0,0)" />
+	  <rect class="state" id="kentucky" width="100" height="100" style="fill:rgb(255,255,255);stroke-width:2;stroke:rgb(0,0,0)" />
+	  <rect class="state" id="louisiana" width="100" height="100" style="fill:rgb(255,255,255);stroke-width:2;stroke:rgb(0,0,0)" />
+	  <rect class="state" id="maine" width="100" height="100" style="fill:rgb(255,255,255);stroke-width:2;stroke:rgb(0,0,0)" />
+	  <rect class="state" id="maryland" width="100" height="100" style="fill:rgb(255,255,255);stroke-width:2;stroke:rgb(0,0,0)" />
+5
+	  <rect class="state" id="massachusetts" width="100" height="100" style="fill:rgb(255,255,255);stroke-width:2;stroke:rgb(0,0,0)" />
+	  <rect class="state" id="michigan" width="100" height="100" style="fill:rgb(255,255,255);stroke-width:2;stroke:rgb(0,0,0)" />
+	  <rect class="state" id="minnesota" width="100" height="100" style="fill:rgb(255,255,255);stroke-width:2;stroke:rgb(0,0,0)" />
+	  <rect class="state" id="mississippi" width="100" height="100" style="fill:rgb(255,255,255);stroke-width:2;stroke:rgb(0,0,0)" />
+	  <rect class="state" id="missouri" width="100" height="100" style="fill:rgb(255,255,255);stroke-width:2;stroke:rgb(0,0,0)" />
+6
+	  <rect class="state" id="montana" width="100" height="100" style="fill:rgb(255,255,255);stroke-width:2;stroke:rgb(0,0,0)" />
+	  <rect class="state" id="nebraska" width="100" height="100" style="fill:rgb(255,255,255);stroke-width:2;stroke:rgb(0,0,0)" />
+	  <rect class="state" id="nevada" width="100" height="100" style="fill:rgb(255,255,255);stroke-width:2;stroke:rgb(0,0,0)" />
+	  <rect class="state" id="newhampshire" width="100" height="100" style="fill:rgb(255,255,255);stroke-width:2;stroke:rgb(0,0,0)" />
+	  <rect class="state" id="newjersey" width="100" height="100" style="fill:rgb(255,255,255);stroke-width:2;stroke:rgb(0,0,0)" />
+7
+	  <rect class="state" id="newmexico" width="100" height="100" style="fill:rgb(255,255,255);stroke-width:2;stroke:rgb(0,0,0)" />
+	  <rect class="state" id="newyork" width="100" height="100" style="fill:rgb(255,255,255);stroke-width:2;stroke:rgb(0,0,0)" />
+	  <rect class="state" id="northcarolina" width="100" height="100" style="fill:rgb(255,255,255);stroke-width:2;stroke:rgb(0,0,0)" />
+	  <rect class="state" id="northdakota" width="100" height="100" style="fill:rgb(255,255,255);stroke-width:2;stroke:rgb(0,0,0)" />
+	  <rect class="state" id="ohio" width="100" height="100" style="fill:rgb(255,255,255);stroke-width:2;stroke:rgb(0,0,0)" />
+8
+	  <rect class="state" id="oklahoma" width="100" height="100" style="fill:rgb(255,255,255);stroke-width:2;stroke:rgb(0,0,0)" />
+	  <rect class="state" id="oregon" width="100" height="100" style="fill:rgb(255,255,255);stroke-width:2;stroke:rgb(0,0,0)" />
+	  <rect class="state" id="pennsylvania" width="100" height="100" style="fill:rgb(255,255,255);stroke-width:2;stroke:rgb(0,0,0)" />
+	  <rect class="state" id="rhodeisland" width="100" height="100" style="fill:rgb(255,255,255);stroke-width:2;stroke:rgb(0,0,0)" />
+	  <rect class="state" id="southcarolina" width="100" height="100" style="fill:rgb(255,255,255);stroke-width:2;stroke:rgb(0,0,0)" />
+9
+	  <rect class="state" id="southdakota" width="100" height="100" style="fill:rgb(255,255,255);stroke-width:2;stroke:rgb(0,0,0)" />
+	  <rect class="state" id="tennessee" width="100" height="100" style="fill:rgb(255,255,255);stroke-width:2;stroke:rgb(0,0,0)" />
+	  <rect class="state" id="texas" width="100" height="100" style="fill:rgb(255,255,255);stroke-width:2;stroke:rgb(0,0,0)" />
+	  <rect class="state" id="utah" width="100" height="100" style="fill:rgb(255,255,255);stroke-width:2;stroke:rgb(0,0,0)" />
+	  <rect class="state" id="vermont" width="100" height="100" style="fill:rgb(255,255,255);stroke-width:2;stroke:rgb(0,0,0)" />
+10
+	  <rect class="state" id="virginia" width="100" height="100" style="fill:rgb(255,255,255);stroke-width:2;stroke:rgb(0,0,0)" />
+	  <rect class="state" id="washington" width="100" height="100" style="fill:rgb(255,255,255);stroke-width:2;stroke:rgb(0,0,0)" />
+	  <rect class="state" id="westvirginia" width="100" height="100" style="fill:rgb(255,255,255);stroke-width:2;stroke:rgb(0,0,0)" />
+	  <rect class="state" id="wisconsin" width="100" height="100" style="fill:rgb(255,255,255);stroke-width:2;stroke:rgb(0,0,0)" />
+	  <rect class="state" id="wyoming" width="100" height="100" style="fill:rgb(255,255,255);stroke-width:2;stroke:rgb(0,0,0)" />
+	</svg>
+	<div data-role="main" class="ui-content">
+	  <form method="post" action="/slider/">
+	    <label for="year">Year:</label>
+	    <input type="range" id="year" value="2013" min="1977" max="2013" data-popup-enabled="true">
+	  </form>
+	</div>
+      </div>
+      <div id="stats">
+	{% for stat in info %}
+	<li> {{stat}} </li>
+	{% endfor %}
+      </div>
+    </svg>
+    <div id="dObj" style="display: none;"> {{ dObj }} </div>
+    <script src="../static/js.js"></script>
+  </body>
+</html>
