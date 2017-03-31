@@ -14,3 +14,6 @@ Group -- 2017-03-28 14:46
 jessicaY -- 2017-03-30 12:15
 	Created a basic flask app and the template for the data visualization
 	Wrote functions to read data from the csv and return it as a list to the template
+
+farhanH -- 2017-03-31 14:30
+	Created a gradient color function
