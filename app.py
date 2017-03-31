@@ -5,12 +5,12 @@ app = Flask(__name__)
 app.secret_key = 'imagine-you-are-a-light-molecule...'
 
 state = 'New York'
-year = '2013'
+year = '2010'
 
 @app.route("/")
 # displays the data visualization
 def home():
-    return render_template('main.html', info = readStateByYear(state, year) )
+    return render_template('main.html', info = readStateByYear(state, year), dObj = getInfo() )
 
 # reads csv file and returns an array
 # dictionary of list of lists
@@ -32,6 +32,25 @@ def read():
     tmp[header[0]] = [header[1:]]
     return tmp
 
+
+# returns a list of lists without state or year
+# sublist ordered by year
+# sublist item ordered by state alphabetically:
+#     [ net_job_creation_rate, births, dhs denominator, deaths, etc.],
+#     [ net_job_creation_rate, births, dhs denominator, deaths, etc.], etc ] }
+def getInfo():
+    arr = read()
+    del arr['Year']
+    tmp = []
+    for key in sorted(arr.iterkeys()):
+        record = arr[key]
+        tmp2 = []
+        for s in record:
+            s = s[1:]
+            tmp2.append(s)
+        tmp.append(tmp2)
+    return tmp
+    
 # returns a list of all the stats for a state in a given year
 def readStateByYear(s, y):
     allStats = read()
