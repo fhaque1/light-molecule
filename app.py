@@ -10,7 +10,7 @@ year = '2010'
 @app.route("/")
 # displays the data visualization
 def home():
-    return render_template('main.html', info = readStateByYear(state, year), dObj = getInfo() )
+    return render_template('main.html', info = readStateByYear(state, year), dObj = getInfo(), year = year, state = state)
 
 # reads csv file and returns an array
 # dictionary of list of lists
@@ -65,6 +65,24 @@ def readStateByYear(s, y):
         arr.append( header[ctr] + ': ' + oneState[ctr])
         ctr += 1
     return arr
+
+# returns year
+def getYear():
+    return year
+
+# updates year
+def setYear(y):
+    year = y
+    return y
+
+# returns state
+def getState():
+    return state
+
+# updates state
+def setState(s):
+    state = s
+    return s
 
 if __name__ == "__main__":
     app.debug = True
