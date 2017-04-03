@@ -18,10 +18,22 @@
 
   <body>
     <center> <h1>Job Growth: 1977-2013</h1> </center>
-    <svg>
-      <div id="map">
-	<center>
-	<svg id="america" height="800" width="1300" style="border:1px solid black;">
+    
+    <div id="map">
+      <center>
+	<br>
+	<svg id="america" height="800" width="1300" style="border:1px solid white;">
+	  <line x1="20" y1="20" x2="50" y2="20" stroke-width="30" stroke="black"/> 
+	  <line x1="70" y1="20" x2="100" y2="20" stroke-width="30"  stroke="black" />  
+	  <line x1="120" y1="20" x2="150" y2="20" stroke-width="30"   stroke="black"/>  
+	  <line x1="170" y1="20" x2="200" y2="20" stroke-width="30"  stroke="black" />  
+	  <line x1="220" y1="20" x2="250" y2="20" stroke-width="30" stroke="black" />  
+	  <line x1="270" y1="20" x2="300" y2="20" stroke-width="30" stroke="black" />  
+	  <line x1="320" y1="20" x2="350" y2="20" stroke-width="30" stroke="black" />  
+	  <line x1="370" y1="20" x2="400" y2="20" stroke-width="30" stroke="black" />  
+	  <line x1="420" y1="20" x2="450" y2="20" stroke-width="30" stroke="black" />  
+	  <line x1="470" y1="20" x2="500" y2="20" stroke-width="30" stroke="black" />  
+
 	  <rect class="state" id="alabama" x="870" y="610" width="50" height="50" style="fill:rgb(255,255,255);stroke-width:2;stroke:rgb(0,0,0)"/>
 	  <rect class="state" id="alaska" x="20" y="610" width="50" height="50" style="fill:rgb(255,255,255);stroke-width:2;stroke:rgb(0,0,0)" />
 	  <rect class="state" id="arizona" x="300" y="570" width="50" height="50" style="fill:rgb(255,255,255);stroke-width:2;stroke:rgb(0,0,0)" />
@@ -74,19 +86,20 @@
 	  <rect class="state" id="wisconsin" x="760" y="220" width="50" height="50" style="fill:rgb(255,255,255);stroke-width:2;stroke:rgb(0,0,0)" />
 	  <rect class="state" id="wyoming" x="360" y="320" width="50" height="50" style="fill:rgb(255,255,255);stroke-width:2;stroke:rgb(0,0,0)" />
 	</svg>
-	</center>
+      </center>
+      <svg>
 	<div data-role="main" class="ui-content">
 	  <form method="post" action="/slider/">
 	    <label for="year">Year:</label>
 	    <input type="range" id="year" value="{{year}}" min="1977" max="2013" data-popup-enabled="true">
 	  </form>
 	</div>
-      </div>
-      <div id="stats">
-	{% for stat in info %}
-	<li> {{stat}} </li>
-	{% endfor %}
-      </div>
+    </div>
+    <div id="stats">
+      {% for stat in info %}
+      <li> {{stat}} </li>
+      {% endfor %}
+    </div>
     </svg>
     <div id="dObj" style="display: none;"> {{ dObj }} </div>
     <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
