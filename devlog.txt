@@ -17,3 +17,5 @@ jessicaY -- 2017-03-30 12:15
 
 farhanH -- 2017-03-31 14:30
 	Created a gradient color function
+maxB -- 2017-04-02 11:00
+     	Created function updateMap() which adjusts color and size based upon the value present in the slider

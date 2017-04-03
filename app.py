@@ -46,7 +46,7 @@ def getInfo():
         record = arr[key]
         tmp2 = []
         for s in record:
-            s = s[1:]
+            s = float(s[1])
             tmp2.append(s)
         tmp.append(tmp2)
     return tmp
