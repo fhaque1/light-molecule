@@ -24,5 +24,5 @@ var updateMap = function(e){
     });
 };
 window.onload = function(){
-    document.getElementsByClassName("ui-slider-handle")[0].addEventListener('click',updateMap);
+    document.getElementsByTagName("body")[0].addEventListener('mouseup',updateMap);
 };
