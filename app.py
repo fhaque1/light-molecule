@@ -55,6 +55,7 @@ def getInfo():
     return tmp
     
 # returns a list of all the stats for a state in a given year
+@app.route("/info",methods=['GET'])
 def readStateByYear(s, y):
     allStats = read()
     oneYear = allStats[y]

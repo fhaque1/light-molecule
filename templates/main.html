@@ -89,6 +89,34 @@
 	</svg>
       </center>
 
+            <script>
+	var classname = document.getElementsByClassName("state");
+
+	var pop = function() {
+	var id = this.getAttribute("id");
+
+	};
+
+
+$.ajax({
+   url: "/info",
+   type: "GET",
+   //data: {'s':'newyork','y'='2008'},
+   success: function(response){
+	$('#alaska').html(response).fadeIn(1500);
+	console.log("!!!!!!!!");
+   }
+});
+	
+
+	//alert(attribute);
+	
+
+	for (var i = 0; i < classname.length; i++) {
+			    classname[i].addEventListener('mouseover', pop, false);
+			    }
+			    </script>
+
       <svg>
 	<div data-role="main" class="ui-content">
 	  <form method="post" action="/slider/">
