@@ -32,6 +32,8 @@ var updateMap = function(e){
         .attr("fill", "black")
 	.attr("text-anchor", "middle"); 
 };
+
 window.onload = function(){
     document.getElementsByTagName("body")[0].addEventListener('mouseup',updateMap);
 };
+
