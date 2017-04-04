@@ -1,3 +1,4 @@
+console.log(">>>>>>>>>>>>");
 var colorSwitch = function(i,j, currentR, currentG, currentB){
 	var scale = i/j;
 	var newR = Math.floor(currentR + (255-currentR) * (1- scale));
@@ -23,6 +24,8 @@ var updateMap = function(e){
 	}
     });
 };
+
 window.onload = function(){
     document.getElementsByTagName("body")[0].addEventListener('mouseup',updateMap);
 };
+
