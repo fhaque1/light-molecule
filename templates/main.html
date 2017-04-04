@@ -104,23 +104,31 @@
 	};
 
 
-$.ajax({
+var makenamepropper = function(state){
+	if( state == 'newyork'){
+	return "New York";
+}
+	
+
+var mm = function(){ $.ajax({
    url: "/info/",
-   type: "GET",
-   data: {'s':'newyork','y':'2008'},
-   success: function(response){
-	$('#alaska').html(response).fadeIn(1500);
-	console.log("!!!!!!!!");
-   }
-});
+	type: "GET",
+	data: {'s':makenamepropper(this.getAttribute("id")),'y':document.getElementsByClassName("ui-slider-handle").aria-valuenow},
+	success: function(response){
+	console.log(response);
+	document.getElementById("stats").innerHTML = response;
+	}
+	});
+	};
+
 	
 
 	//alert(attribute);
 	
 
 	for (var i = 0; i < classname.length; i++) {
-			    classname[i].addEventListener('mouseover', pop, false);
-			    }
+			    classname[i].addEventListener('click', mm, false);
+			    };
 			    </script>
 
       
