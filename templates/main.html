@@ -23,6 +23,7 @@
       <center>
 	<br>
 	<svg id="america" height="800" width="1300" style="border:1px solid white;">
+		<g>
 	  <line x1="20" y1="20" x2="50" y2="20" stroke-width="30" stroke="black"/> 
 	  <line x1="70" y1="20" x2="100" y2="20" stroke-width="30"  stroke="black" />  
 	  <line x1="120" y1="20" x2="150" y2="20" stroke-width="30"   stroke="black"/>  
@@ -85,6 +86,7 @@
 	  <rect class="state" id="westvirginia" x="930" y="340" width="50" height="50" style="fill:rgb(255,255,255);stroke-width:2;stroke:rgb(0,0,0)" />
 	  <rect class="state" id="wisconsin" x="760" y="220" width="50" height="50" style="fill:rgb(255,255,255);stroke-width:2;stroke:rgb(0,0,0)" />
 	  <rect class="state" id="wyoming" x="360" y="320" width="50" height="50" style="fill:rgb(255,255,255);stroke-width:2;stroke:rgb(0,0,0)" />
+	  </g>
 	</svg>
       </center>
       <svg>
@@ -105,4 +107,10 @@
     <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
     <script src="../static/js.js"></script>
   </body>
+    <script type="text/javascript">
+    var svg = d3.select("svg")
+      .call(d3.behavior.zoom().on("zoom", function () {
+        svg.select("g").attr("transform", "translate(" + d3.event.translate + ")" + " scale(" + d3.event.scale + ")")
+      }))
+  </script>
 </html>
