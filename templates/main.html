@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
     <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
     <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-    <script src="../d3-src/d3.min.js" charset="utf-8"></script>
+    <script src="../static/d3-src/d3.min.js" charset="utf-8"></script>
 
     <title>Job Growth in the U.S.</title>
 
@@ -20,6 +20,11 @@
     <center> <h1>Job Growth: 1977-2013</h1> </center>  
     <div id="map">
       <center>
+	<div data-role="main" class="ui-content">
+	  <form method="post" action="/slider/">
+	    <input type="range" id="year" value="{{year}}" min="1977" max="2013" data-popup-enabled="true">
+	  </form>
+	</div>
 	<br>
 	<svg id="america" height="800" width="1300" style="border:1px solid white;">
 		<g>
@@ -99,9 +104,9 @@
 
 
 $.ajax({
-   url: "/info",
+   url: "/",
    type: "GET",
-   //data: {'s':'newyork','y'='2008'},
+   data: {'s':'newyork','y'='2008'},
    success: function(response){
 	$('#alaska').html(response).fadeIn(1500);
 	console.log("!!!!!!!!");
@@ -117,19 +122,15 @@ $.ajax({
 			    }
 			    </script>
 
-      <svg>
-	<div data-role="main" class="ui-content">
-	  <form method="post" action="/slider/">
-	    <label for="year">Year:</label>
-	    <input type="range" id="year" value="{{year}}" min="1977" max="2013" data-popup-enabled="true">
-	  </form>
-	</div>
+      
+	
     </div>
-    <div id="stats">
-      {% for stat in info %}
-      <li> {{stat}} </li>
-      {% endfor %}
-    </div>
+    <svg>
+      <div id="stats">
+	{% for stat in info %}
+	<li> {{stat}} </li>
+	{% endfor %}
+      </div>
     </svg>
     <div id="dObj" style="display: none;"> {{ dObj }} </div>
     <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>

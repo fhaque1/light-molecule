@@ -2,15 +2,13 @@ print "working?"
 from flask import Flask, render_template, redirect, url_for, request, jsonify
 import csv
 
-
-
 app = Flask(__name__)
 app.secret_key = 'imagine-you-are-a-light-molecule...'
 
 state = 'New York'
 year = '2010'
 
-@app.route("/")
+@app.route("/", methods = ['GET', 'POST'])
 # displays the data visualization
 def home():
     return render_template('main.html', info = readStateByYear(state, year), dObj = getInfo(), year = year, state = state)
@@ -34,7 +32,6 @@ def read():
             tmp[row[0]] = tmp[row[0]] + [row[1:]]
     tmp[header[0]] = [header[1:]]
     return tmp
-
 
 # returns a list of lists without state or year
 # sublist ordered by year
