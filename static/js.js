@@ -22,6 +22,15 @@ var updateMap = function(e){
 	    return colorSwitch(d,30,0,255,0);
 	}
     });
+
+    var text = d3.select("[id='america']").selectAll("text").data(names).enter().append("text");
+    text
+	.attr("x", function(d,i) { return squares[0][i].x.animVal.value;})
+	.attr("y", function(d,i) { return squares[0][i].y.animVal.value;})
+	.attr("font-family", "sans-serif")
+        .attr("font-size", "12px")
+        .attr("fill", "black")
+	.attr("text-anchor", "middle"); 
 };
 window.onload = function(){
     document.getElementsByTagName("body")[0].addEventListener('mouseup',updateMap);
