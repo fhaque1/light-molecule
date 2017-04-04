@@ -51,8 +51,11 @@ def getInfo():
         tmp.append(tmp2)
     return tmp
     
+@app.route("/info/", methods=['GET'])
+def returnInfo():
+    return render_template('main.html', info = readStateByYear(state, year))
+
 # returns a list of all the stats for a state in a given year
-@app.route("/info",methods=['GET'])
 def readStateByYear(s, y):
     allStats = read()
     oneYear = allStats[y]

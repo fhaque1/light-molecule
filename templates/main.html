@@ -105,9 +105,9 @@
 
 
 $.ajax({
-   url: "/",
+   url: "/info/",
    type: "GET",
-   data: {'s':'newyork','y'='2008'},
+   data: {'s':'newyork','y':'2008'},
    success: function(response){
 	$('#alaska').html(response).fadeIn(1500);
 	console.log("!!!!!!!!");
