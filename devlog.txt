@@ -17,5 +17,14 @@ jessicaY -- 2017-03-30 12:15
 
 farhanH -- 2017-03-31 14:30
 	Created a gradient color function
+
 maxB -- 2017-04-02 11:00
      	Created function updateMap() which adjusts color and size based upon the value present in the slider
+
+nicoleC -- 2017-04-01 20:00
+	Finished map of the good ol' US of A
+
+nicoleC -- 2017-04-03 14:45
+	svg aesthetics
+	"squares" for legend
+	       hover states	
