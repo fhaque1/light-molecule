@@ -1,26 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+<div id="all">
+  <html lang="en">
+    <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
-    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="../static/css.css">
-    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
-    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-    <script src="../static/d3-src/d3.min.js" charset="utf-8"></script>
+      <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <link rel="stylesheet" href="../static/css.css">
+      <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+      <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+      <script src="../static/d3-src/d3.min.js" charset="utf-8"></script>
+      <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+      <script>window.jQuery || document.write('<script src="{{url_for('static', filename='jquery.js') }}">\x3C/script>')</script>
 
-    <title>Job Growth in the U.S.</title>
+	<title>Job Growth in the U.S.</title>
 
-  </head>
+    </head>
 
 
-  <body>
-    <center> <h1> <i class="fa fa-play-circle" id="play" style="font-size:35px;color:red"></i> Job Growth: 1977-2013 </h1>  </center>  
-    <div id="map">
+    <body>
+      <center> <h1> <i class="fa fa-play-circle" id="play" style="font-size:35px;color:red"></i> Job Growth: 1977-2013 </h1>  </center>  
+      <div id="map">
 	<div data-role="main" class="ui-content">
 	  <form method="post" action="/slider/">
 	    <input type="range" id="year" value="{{year}}" min="1977" max="2013" data-popup-enabled="true">
@@ -28,135 +31,135 @@
 	</div>
 	<br>
 	<svg id="america"">
-		<g>
-	  <line x1="20" y1="20" x2="50" y2="20" stroke-width="30" stroke="black"/> 
-	  <line x1="70" y1="20" x2="100" y2="20" stroke-width="30"  stroke="black" />  
-	  <line x1="120" y1="20" x2="150" y2="20" stroke-width="30"   stroke="black"/>  
-	  <line x1="170" y1="20" x2="200" y2="20" stroke-width="30"  stroke="black" />  
-	  <line x1="220" y1="20" x2="250" y2="20" stroke-width="30" stroke="black" />  
-	  <line x1="270" y1="20" x2="300" y2="20" stroke-width="30" stroke="black" />  
-	  <line x1="320" y1="20" x2="350" y2="20" stroke-width="30" stroke="black" />  
-	  <line x1="370" y1="20" x2="400" y2="20" stroke-width="30" stroke="black" />  
-	  <line x1="420" y1="20" x2="450" y2="20" stroke-width="30" stroke="black" />  
-	  <line x1="470" y1="20" x2="500" y2="20" stroke-width="30" stroke="black" />  
+	  <g>
+	    <line x1="20" y1="20" x2="50" y2="20" stroke-width="30" stroke="black"/> 
+	    <line x1="70" y1="20" x2="100" y2="20" stroke-width="30"  stroke="black" />  
+	    <line x1="120" y1="20" x2="150" y2="20" stroke-width="30"   stroke="black"/>  
+	    <line x1="170" y1="20" x2="200" y2="20" stroke-width="30"  stroke="black" />  
+	    <line x1="220" y1="20" x2="250" y2="20" stroke-width="30" stroke="black" />  
+	    <line x1="270" y1="20" x2="300" y2="20" stroke-width="30" stroke="black" />  
+	    <line x1="320" y1="20" x2="350" y2="20" stroke-width="30" stroke="black" />  
+	    <line x1="370" y1="20" x2="400" y2="20" stroke-width="30" stroke="black" />  
+	    <line x1="420" y1="20" x2="450" y2="20" stroke-width="30" stroke="black" />  
+	    <line x1="470" y1="20" x2="500" y2="20" stroke-width="30" stroke="black" />  
 
-	  <rect class="state" id="Alabama" x="870" y="610" width="50" height="50" onmouseover="evt.target.setAttribute('opacity', '0.5');" onmouseout="evt.target.setAttribute('opacity','1)');" style="fill:white;stroke-width:2;stroke:black"/>
-	  <rect class="state" id="Alaska" x="20" y="610" width="50" height="50" onmouseover="evt.target.setAttribute('opacity', '0.5');" onmouseout="evt.target.setAttribute('opacity','1)');" style="fill:white;stroke-width:2;stroke:black"/>
-	  <rect class="state" id="Arizona" x="300" y="570" width="50" height="50" onmouseover="evt.target.setAttribute('opacity', '0.5');" onmouseout="evt.target.setAttribute('opacity','1)');" style="fill:white;stroke-width:2;stroke:black"/>
-	  <rect class="state" id="Arkansas" x="690" y="520" width="50" height="50" onmouseover="evt.target.setAttribute('opacity', '0.5');" onmouseout="evt.target.setAttribute('opacity','1)');" style="fill:white;stroke-width:2;stroke:black"/>
-	  <rect class="state" id="California" x="160" y="455" width="50" height="50" onmouseover="evt.target.setAttribute('opacity', '0.5');" onmouseout="evt.target.setAttribute('opacity','1)');" style="fill:white;stroke-width:2;stroke:black"/>
-	  <rect class="state" id="Colorado" x="430" y="450" width="50" height="50" onmouseover="evt.target.setAttribute('opacity', '0.5');" onmouseout="evt.target.setAttribute('opacity','1)');" style="fill:white;stroke-width:2;stroke:black"/>
-	  <rect class="state" id="Connecticut" x="1110" y="230" width="50" height="50" onmouseover="evt.target.setAttribute('opacity', '0.5');" onmouseout="evt.target.setAttribute('opacity','1)');" style="fill:white;stroke-width:2;stroke:black"/>
-	  <rect class="state" id="Delaware" x="1070" y="350" width="50" height="50" onmouseover="evt.target.setAttribute('opacity', '0.5');" onmouseout="evt.target.setAttribute('opacity','1)');" style="fill:white;stroke-width:2;stroke:black"/>
-	  <rect class="state" id="District of Columbia" x="1080" y="410" width="50" height="50" onmouseover="evt.target.setAttribute('opacity', '0.5');" onmouseout="evt.target.setAttribute('opacity','1)');" style="fill:white;stroke-width:2;stroke:black"/>
-	  <rect class="state" id="Florida" x="980" y="690" width="50" height="50" onmouseover="evt.target.setAttribute('opacity', '0.5');" onmouseout="evt.target.setAttribute('opacity','1)');" style="fill:white;stroke-width:2;stroke:black"/>
-	  <rect class="state" id="Georgia" x="940" y="610" width="50" height="50" onmouseover="evt.target.setAttribute('opacity', '0.5');" onmouseout="evt.target.setAttribute('opacity','1)');" style="fill:white;stroke-width:2;stroke:black"/>
-	  <rect class="state" id="Hawaii" x="20" y="700" width="50" height="50" onmouseover="evt.target.setAttribute('opacity', '0.5');" onmouseout="evt.target.setAttribute('opacity','1)');" style="fill:white;stroke-width:2;stroke:black"/>
-	  <rect class="state" id="Idaho" x="230" y="210" width="50" height="50" onmouseover="evt.target.setAttribute('opacity', '0.5');" onmouseout="evt.target.setAttribute('opacity','1)');" style="fill:white;stroke-width:2;stroke:black"/>
-	  <rect class="state" id="Illinois" x="770" y="350" width="50" height="50" onmouseover="evt.target.setAttribute('opacity', '0.5');" onmouseout="evt.target.setAttribute('opacity','1)');" style="fill:white;stroke-width:2;stroke:black"/>
-	  <rect class="state" id="Indiana" x="850" y="330" width="50" height="50" onmouseover="evt.target.setAttribute('opacity', '0.5');" onmouseout="evt.target.setAttribute('opacity','1)');" style="fill:white;stroke-width:2;stroke:black"/>
-	  <rect class="state" id="Iowa" x="650" y="310" width="50" height="50" onmouseover="evt.target.setAttribute('opacity', '0.5');" onmouseout="evt.target.setAttribute('opacity','1)');" style="fill:white;stroke-width:2;stroke:black"/>
-	  <rect class="state" id="Kansas" x="550" y="420" width="50" height="50" onmouseover="evt.target.setAttribute('opacity', '0.5');" onmouseout="evt.target.setAttribute('opacity','1)');" style="fill:white;stroke-width:2;stroke:black"/>
-	  <rect class="state" id="Kentucky" x="810" y="430" width="50" height="50" onmouseover="evt.target.setAttribute('opacity', '0.5');" onmouseout="evt.target.setAttribute('opacity','1)');" style="fill:white;stroke-width:2;stroke:black"/>
-	  <rect class="state" id="Louisiana" x="690" y="620" width="50" height="50" onmouseover="evt.target.setAttribute('opacity', '0.5');" onmouseout="evt.target.setAttribute('opacity','1)');" style="fill:white;stroke-width:2;stroke:black"/>
-	  <rect class="state" id="Maine" x="1220" y="50" width="50" height="50" onmouseover="evt.target.setAttribute('opacity', '0.5');" onmouseout="evt.target.setAttribute('opacity','1)');" style="fill:white;stroke-width:2;stroke:black"/>
-	  <rect class="state" id="Maryland" x="1000" y="370" width="50" height="50" onmouseover="evt.target.setAttribute('opacity', '0.5');" onmouseout="evt.target.setAttribute('opacity','1)');" style="fill:white;stroke-width:2;stroke:black"/>
-	  <rect class="state" id="Massachusetts" x="1140" y="170" width="50" height="50" onmouseover="evt.target.setAttribute('opacity', '0.5');" onmouseout="evt.target.setAttribute('opacity','1)');" style="fill:white;stroke-width:2;stroke:black"/>
-	  <rect class="state" id="Michigan" x="850" y="210" width="50" height="50" onmouseover="evt.target.setAttribute('opacity', '0.5');" onmouseout="evt.target.setAttribute('opacity','1)');" style="fill:white;stroke-width:2;stroke:black"/>
-	  <rect class="state" id="Minnesota" x="650" y="190" width="50" height="50" onmouseover="evt.target.setAttribute('opacity', '0.5');" onmouseout="evt.target.setAttribute('opacity','1)');" style="fill:white;stroke-width:2;stroke:black"/>
-	  <rect class="state" id="Mississippi" x="790" y="610" width="50" height="50" onmouseover="evt.target.setAttribute('opacity', '0.5');" onmouseout="evt.target.setAttribute('opacity','1)');" style="fill:white;stroke-width:2;stroke:black"/>
-	  <rect class="state" id="Missouri"  x="670" y="410" width="50" height="50" onmouseover="evt.target.setAttribute('opacity', '0.5');" onmouseout="evt.target.setAttribute('opacity','1)');" style="fill:white;stroke-width:2;stroke:black"/>
-	  <rect class="state" id="Montana" x="350" y="180" width="50" height="50" onmouseover="evt.target.setAttribute('opacity', '0.5');" onmouseout="evt.target.setAttribute('opacity','1)');" style="fill:white;stroke-width:2;stroke:black"/>
-	  <rect class="state" id="Nebraska" x="530" y="340" width="50" height="50" onmouseover="evt.target.setAttribute('opacity', '0.5');" onmouseout="evt.target.setAttribute('opacity','1)');" style="fill:white;stroke-width:2;stroke:black"/>
-	  <rect class="state" id="Nevada" x="220" y="360" width="50" height="50" onmouseover="evt.target.setAttribute('opacity', '0.5');" onmouseout="evt.target.setAttribute('opacity','1)');" style="fill:white;stroke-width:2;stroke:black"/>
-	  <rect class="state" id="New Hampshire" x="1180" y="110" width="50" height="50" onmouseover="evt.target.setAttribute('opacity', '0.5');" onmouseout="evt.target.setAttribute('opacity','1)');" style="fill:white;stroke-width:2;stroke:black"/>
-	  <rect class="state" id="New Jersey" x="1090" y="290" width="50" height="50" onmouseover="evt.target.setAttribute('opacity', '0.5');" onmouseout="evt.target.setAttribute('opacity','1)');" style="fill:white;stroke-width:2;stroke:black"/>
-	  <rect class="state" id="New Mexico" x="430" y="570" width="50" height="50" onmouseover="evt.target.setAttribute('opacity', '0.5');" onmouseout="evt.target.setAttribute('opacity','1)');" style="fill:white;stroke-width:2;stroke:black"/>
-	  <rect class="state" id="New York" x="1010" y="170" width="50" height="50" onmouseover="evt.target.setAttribute('opacity', '0.5');" onmouseout="evt.target.setAttribute('opacity','1)');" style="fill:white;stroke-width:2;stroke:black"/>
-	  <rect class="state" id="North Carolina" x="980" y="490" width="50" height="50" onmouseover="evt.target.setAttribute('opacity', '0.5');" onmouseout="evt.target.setAttribute('opacity','1)');" style="fill:white;stroke-width:2;stroke:black"/>
-	  <rect class="state" id="North Dakota" x="510" y="170" width="50" height="50" onmouseover="evt.target.setAttribute('opacity', '0.5');" onmouseout="evt.target.setAttribute('opacity','1)');" style="fill:white;stroke-width:2;stroke:black"/>
-	  <rect class="state" id="Ohio" x="920" y="260" width="50" height="50" onmouseover="evt.target.setAttribute('opacity', '0.5');" onmouseout="evt.target.setAttribute('opacity','1)');" style="fill:white;stroke-width:2;stroke:black"/>
-	  <rect class="state" id="Oklahoma" x="580" y="510" width="50" height="50" onmouseover="evt.target.setAttribute('opacity', '0.5');" onmouseout="evt.target.setAttribute('opacity','1)');" style="fill:white;stroke-width:2;stroke:black"/>
-	  <rect class="state" id="Oregon" x="120" y="260" width="50" height="50" onmouseover="evt.target.setAttribute('opacity', '0.5');" onmouseout="evt.target.setAttribute('opacity','1)');" style="fill:white;stroke-width:2;stroke:black"/>
-	  <rect class="state" id="Pennsylvania" x="1000" y="270" width="50" height="50" onmouseover="evt.target.setAttribute('opacity', '0.5');" onmouseout="evt.target.setAttribute('opacity','1)');" style="fill:white;stroke-width:2;stroke:black"/>
-	  <rect class="state" id="Rhode Island" x="1180" y="230" width="50" height="50" onmouseover="evt.target.setAttribute('opacity', '0.5');" onmouseout="evt.target.setAttribute('opacity','1)');" style="fill:white;stroke-width:2;stroke:black"/>
-	  <rect class="state" id="South Carolina" x="960" y="550" width="50" height="50" onmouseover="evt.target.setAttribute('opacity', '0.5');" onmouseout="evt.target.setAttribute('opacity','1)');" style="fill:white;stroke-width:2;stroke:black"/>
-	  <rect class="state" id="South Dakota" x="520" y="255" width="50" height="50" onmouseover="evt.target.setAttribute('opacity', '0.5');" onmouseout="evt.target.setAttribute('opacity','1)');" style="fill:white;stroke-width:2;stroke:black"/>
-	  <rect class="state" id="Tennessee" x="820" y="520" width="50" height="50" onmouseover="evt.target.setAttribute('opacity', '0.5');" onmouseout="evt.target.setAttribute('opacity','1)');" style="fill:white;stroke-width:2;stroke:black"/>
-	  <rect class="state" id="Texas" x="550" y="660" width="50" height="50" onmouseover="evt.target.setAttribute('opacity', '0.5');" onmouseout="evt.target.setAttribute('opacity','1)');" style="fill:white;stroke-width:2;stroke:black"/>
-	  <rect class="state" id="Utah" x="300" y="450" width="50" height="50" onmouseover="evt.target.setAttribute('opacity', '0.5');" onmouseout="evt.target.setAttribute('opacity','1)');" style="fill:white;stroke-width:2;stroke:black"/>
-	  <rect class="state" id="Vermont" x="1110" y="110" width="50" height="50" onmouseover="evt.target.setAttribute('opacity', '0.5');" onmouseout="evt.target.setAttribute('opacity','1)');" style="fill:white;stroke-width:2;stroke:black"/>
-	  <rect class="state" id="Virginia" x="1010" y="430" width="50" height="50" onmouseover="evt.target.setAttribute('opacity', '0.5');" onmouseout="evt.target.setAttribute('opacity','1)');" style="fill:white;stroke-width:2;stroke:black"/>
-	  <rect class="state" id="Washington" x="100" y="130" width="50" height="50" onmouseover="evt.target.setAttribute('opacity', '0.5');" onmouseout="evt.target.setAttribute('opacity','1)');" style="fill:white;stroke-width:2;stroke:black"/>
-	  <rect class="state" id="West Virginia" x="930" y="340" width="50" height="50" onmouseover="evt.target.setAttribute('opacity', '0.5');" onmouseout="evt.target.setAttribute('opacity','1)');" style="fill:white;stroke-width:2;stroke:black"/>
-	  <rect class="state" id="Wisconsin" x="760" y="220" width="50" height="50" onmouseover="evt.target.setAttribute('opacity', '0.5');" onmouseout="evt.target.setAttribute('opacity','1)');" style="fill:white;stroke-width:2;stroke:black"/>
-	  <rect class="state" id="Wyoming" x="360" y="320" width="50" height="50" onmouseover="evt.target.setAttribute('opacity', '0.5');" onmouseout="evt.target.setAttribute('opacity','1)');" style="fill:white;stroke-width:2;stroke:black"/>
+	    <rect class="state" id="Alabama" x="870" y="610" width="50" height="50" onmouseover="evt.target.setAttribute('opacity', '0.5');" onmouseout="evt.target.setAttribute('opacity','1)');" style="fill:white;stroke-width:2;stroke:black"/>
+																														 <rect class="state" id="Alaska" x="20" y="610" width="50" height="50" onmouseover="evt.target.setAttribute('opacity', '0.5');" onmouseout="evt.target.setAttribute('opacity','1)');" style="fill:white;stroke-width:2;stroke:black"/>
+																														 <rect class="state" id="Arizona" x="300" y="570" width="50" height="50" onmouseover="evt.target.setAttribute('opacity', '0.5');" onmouseout="evt.target.setAttribute('opacity','1)');" style="fill:white;stroke-width:2;stroke:black"/>
+																														 <rect class="state" id="Arkansas" x="690" y="520" width="50" height="50" onmouseover="evt.target.setAttribute('opacity', '0.5');" onmouseout="evt.target.setAttribute('opacity','1)');" style="fill:white;stroke-width:2;stroke:black"/>
+																														 <rect class="state" id="California" x="160" y="455" width="50" height="50" onmouseover="evt.target.setAttribute('opacity', '0.5');" onmouseout="evt.target.setAttribute('opacity','1)');" style="fill:white;stroke-width:2;stroke:black"/>
+																														 <rect class="state" id="Colorado" x="430" y="450" width="50" height="50" onmouseover="evt.target.setAttribute('opacity', '0.5');" onmouseout="evt.target.setAttribute('opacity','1)');" style="fill:white;stroke-width:2;stroke:black"/>
+																														 <rect class="state" id="Connecticut" x="1110" y="230" width="50" height="50" onmouseover="evt.target.setAttribute('opacity', '0.5');" onmouseout="evt.target.setAttribute('opacity','1)');" style="fill:white;stroke-width:2;stroke:black"/>
+																														 <rect class="state" id="Delaware" x="1070" y="350" width="50" height="50" onmouseover="evt.target.setAttribute('opacity', '0.5');" onmouseout="evt.target.setAttribute('opacity','1)');" style="fill:white;stroke-width:2;stroke:black"/>
+																														 <rect class="state" id="District of Columbia" x="1080" y="410" width="50" height="50" onmouseover="evt.target.setAttribute('opacity', '0.5');" onmouseout="evt.target.setAttribute('opacity','1)');" style="fill:white;stroke-width:2;stroke:black"/>
+																														 <rect class="state" id="Florida" x="980" y="690" width="50" height="50" onmouseover="evt.target.setAttribute('opacity', '0.5');" onmouseout="evt.target.setAttribute('opacity','1)');" style="fill:white;stroke-width:2;stroke:black"/>
+																														 <rect class="state" id="Georgia" x="940" y="610" width="50" height="50" onmouseover="evt.target.setAttribute('opacity', '0.5');" onmouseout="evt.target.setAttribute('opacity','1)');" style="fill:white;stroke-width:2;stroke:black"/>
+																														 <rect class="state" id="Hawaii" x="20" y="700" width="50" height="50" onmouseover="evt.target.setAttribute('opacity', '0.5');" onmouseout="evt.target.setAttribute('opacity','1)');" style="fill:white;stroke-width:2;stroke:black"/>
+																														 <rect class="state" id="Idaho" x="230" y="210" width="50" height="50" onmouseover="evt.target.setAttribute('opacity', '0.5');" onmouseout="evt.target.setAttribute('opacity','1)');" style="fill:white;stroke-width:2;stroke:black"/>
+																														 <rect class="state" id="Illinois" x="770" y="350" width="50" height="50" onmouseover="evt.target.setAttribute('opacity', '0.5');" onmouseout="evt.target.setAttribute('opacity','1)');" style="fill:white;stroke-width:2;stroke:black"/>
+																														 <rect class="state" id="Indiana" x="850" y="330" width="50" height="50" onmouseover="evt.target.setAttribute('opacity', '0.5');" onmouseout="evt.target.setAttribute('opacity','1)');" style="fill:white;stroke-width:2;stroke:black"/>
+																														 <rect class="state" id="Iowa" x="650" y="310" width="50" height="50" onmouseover="evt.target.setAttribute('opacity', '0.5');" onmouseout="evt.target.setAttribute('opacity','1)');" style="fill:white;stroke-width:2;stroke:black"/>
+																														 <rect class="state" id="Kansas" x="550" y="420" width="50" height="50" onmouseover="evt.target.setAttribute('opacity', '0.5');" onmouseout="evt.target.setAttribute('opacity','1)');" style="fill:white;stroke-width:2;stroke:black"/>
+																														 <rect class="state" id="Kentucky" x="810" y="430" width="50" height="50" onmouseover="evt.target.setAttribute('opacity', '0.5');" onmouseout="evt.target.setAttribute('opacity','1)');" style="fill:white;stroke-width:2;stroke:black"/>
+																														 <rect class="state" id="Louisiana" x="690" y="620" width="50" height="50" onmouseover="evt.target.setAttribute('opacity', '0.5');" onmouseout="evt.target.setAttribute('opacity','1)');" style="fill:white;stroke-width:2;stroke:black"/>
+																														 <rect class="state" id="Maine" x="1220" y="50" width="50" height="50" onmouseover="evt.target.setAttribute('opacity', '0.5');" onmouseout="evt.target.setAttribute('opacity','1)');" style="fill:white;stroke-width:2;stroke:black"/>
+																														 <rect class="state" id="Maryland" x="1000" y="370" width="50" height="50" onmouseover="evt.target.setAttribute('opacity', '0.5');" onmouseout="evt.target.setAttribute('opacity','1)');" style="fill:white;stroke-width:2;stroke:black"/>
+																														 <rect class="state" id="Massachusetts" x="1140" y="170" width="50" height="50" onmouseover="evt.target.setAttribute('opacity', '0.5');" onmouseout="evt.target.setAttribute('opacity','1)');" style="fill:white;stroke-width:2;stroke:black"/>
+																														 <rect class="state" id="Michigan" x="850" y="210" width="50" height="50" onmouseover="evt.target.setAttribute('opacity', '0.5');" onmouseout="evt.target.setAttribute('opacity','1)');" style="fill:white;stroke-width:2;stroke:black"/>
+																														 <rect class="state" id="Minnesota" x="650" y="190" width="50" height="50" onmouseover="evt.target.setAttribute('opacity', '0.5');" onmouseout="evt.target.setAttribute('opacity','1)');" style="fill:white;stroke-width:2;stroke:black"/>
+																														 <rect class="state" id="Mississippi" x="790" y="610" width="50" height="50" onmouseover="evt.target.setAttribute('opacity', '0.5');" onmouseout="evt.target.setAttribute('opacity','1)');" style="fill:white;stroke-width:2;stroke:black"/>
+																														 <rect class="state" id="Missouri"  x="670" y="410" width="50" height="50" onmouseover="evt.target.setAttribute('opacity', '0.5');" onmouseout="evt.target.setAttribute('opacity','1)');" style="fill:white;stroke-width:2;stroke:black"/>
+																														 <rect class="state" id="Montana" x="350" y="180" width="50" height="50" onmouseover="evt.target.setAttribute('opacity', '0.5');" onmouseout="evt.target.setAttribute('opacity','1)');" style="fill:white;stroke-width:2;stroke:black"/>
+																														 <rect class="state" id="Nebraska" x="530" y="340" width="50" height="50" onmouseover="evt.target.setAttribute('opacity', '0.5');" onmouseout="evt.target.setAttribute('opacity','1)');" style="fill:white;stroke-width:2;stroke:black"/>
+																														 <rect class="state" id="Nevada" x="220" y="360" width="50" height="50" onmouseover="evt.target.setAttribute('opacity', '0.5');" onmouseout="evt.target.setAttribute('opacity','1)');" style="fill:white;stroke-width:2;stroke:black"/>
+																														 <rect class="state" id="New Hampshire" x="1180" y="110" width="50" height="50" onmouseover="evt.target.setAttribute('opacity', '0.5');" onmouseout="evt.target.setAttribute('opacity','1)');" style="fill:white;stroke-width:2;stroke:black"/>
+																														 <rect class="state" id="New Jersey" x="1090" y="290" width="50" height="50" onmouseover="evt.target.setAttribute('opacity', '0.5');" onmouseout="evt.target.setAttribute('opacity','1)');" style="fill:white;stroke-width:2;stroke:black"/>
+																														 <rect class="state" id="New Mexico" x="430" y="570" width="50" height="50" onmouseover="evt.target.setAttribute('opacity', '0.5');" onmouseout="evt.target.setAttribute('opacity','1)');" style="fill:white;stroke-width:2;stroke:black"/>
+																														 <rect class="state" id="New York" x="1010" y="170" width="50" height="50" onmouseover="evt.target.setAttribute('opacity', '0.5');" onmouseout="evt.target.setAttribute('opacity','1)');" style="fill:white;stroke-width:2;stroke:black"/>
+																														 <rect class="state" id="North Carolina" x="980" y="490" width="50" height="50" onmouseover="evt.target.setAttribute('opacity', '0.5');" onmouseout="evt.target.setAttribute('opacity','1)');" style="fill:white;stroke-width:2;stroke:black"/>
+																														 <rect class="state" id="North Dakota" x="510" y="170" width="50" height="50" onmouseover="evt.target.setAttribute('opacity', '0.5');" onmouseout="evt.target.setAttribute('opacity','1)');" style="fill:white;stroke-width:2;stroke:black"/>
+																														 <rect class="state" id="Ohio" x="920" y="260" width="50" height="50" onmouseover="evt.target.setAttribute('opacity', '0.5');" onmouseout="evt.target.setAttribute('opacity','1)');" style="fill:white;stroke-width:2;stroke:black"/>
+																														 <rect class="state" id="Oklahoma" x="580" y="510" width="50" height="50" onmouseover="evt.target.setAttribute('opacity', '0.5');" onmouseout="evt.target.setAttribute('opacity','1)');" style="fill:white;stroke-width:2;stroke:black"/>
+																														 <rect class="state" id="Oregon" x="120" y="260" width="50" height="50" onmouseover="evt.target.setAttribute('opacity', '0.5');" onmouseout="evt.target.setAttribute('opacity','1)');" style="fill:white;stroke-width:2;stroke:black"/>
+																														 <rect class="state" id="Pennsylvania" x="1000" y="270" width="50" height="50" onmouseover="evt.target.setAttribute('opacity', '0.5');" onmouseout="evt.target.setAttribute('opacity','1)');" style="fill:white;stroke-width:2;stroke:black"/>
+																														 <rect class="state" id="Rhode Island" x="1180" y="230" width="50" height="50" onmouseover="evt.target.setAttribute('opacity', '0.5');" onmouseout="evt.target.setAttribute('opacity','1)');" style="fill:white;stroke-width:2;stroke:black"/>
+																														 <rect class="state" id="South Carolina" x="960" y="550" width="50" height="50" onmouseover="evt.target.setAttribute('opacity', '0.5');" onmouseout="evt.target.setAttribute('opacity','1)');" style="fill:white;stroke-width:2;stroke:black"/>
+																														 <rect class="state" id="South Dakota" x="520" y="255" width="50" height="50" onmouseover="evt.target.setAttribute('opacity', '0.5');" onmouseout="evt.target.setAttribute('opacity','1)');" style="fill:white;stroke-width:2;stroke:black"/>
+																														 <rect class="state" id="Tennessee" x="820" y="520" width="50" height="50" onmouseover="evt.target.setAttribute('opacity', '0.5');" onmouseout="evt.target.setAttribute('opacity','1)');" style="fill:white;stroke-width:2;stroke:black"/>
+																														 <rect class="state" id="Texas" x="550" y="660" width="50" height="50" onmouseover="evt.target.setAttribute('opacity', '0.5');" onmouseout="evt.target.setAttribute('opacity','1)');" style="fill:white;stroke-width:2;stroke:black"/>
+																														 <rect class="state" id="Utah" x="300" y="450" width="50" height="50" onmouseover="evt.target.setAttribute('opacity', '0.5');" onmouseout="evt.target.setAttribute('opacity','1)');" style="fill:white;stroke-width:2;stroke:black"/>
+																														 <rect class="state" id="Vermont" x="1110" y="110" width="50" height="50" onmouseover="evt.target.setAttribute('opacity', '0.5');" onmouseout="evt.target.setAttribute('opacity','1)');" style="fill:white;stroke-width:2;stroke:black"/>
+																														 <rect class="state" id="Virginia" x="1010" y="430" width="50" height="50" onmouseover="evt.target.setAttribute('opacity', '0.5');" onmouseout="evt.target.setAttribute('opacity','1)');" style="fill:white;stroke-width:2;stroke:black"/>
+																														 <rect class="state" id="Washington" x="100" y="130" width="50" height="50" onmouseover="evt.target.setAttribute('opacity', '0.5');" onmouseout="evt.target.setAttribute('opacity','1)');" style="fill:white;stroke-width:2;stroke:black"/>
+																														 <rect class="state" id="West Virginia" x="930" y="340" width="50" height="50" onmouseover="evt.target.setAttribute('opacity', '0.5');" onmouseout="evt.target.setAttribute('opacity','1)');" style="fill:white;stroke-width:2;stroke:black"/>
+																														 <rect class="state" id="Wisconsin" x="760" y="220" width="50" height="50" onmouseover="evt.target.setAttribute('opacity', '0.5');" onmouseout="evt.target.setAttribute('opacity','1)');" style="fill:white;stroke-width:2;stroke:black"/>
+																														 <rect class="state" id="Wyoming" x="360" y="320" width="50" height="50" onmouseover="evt.target.setAttribute('opacity', '0.5');" onmouseout="evt.target.setAttribute('opacity','1)');" style="fill:white;stroke-width:2;stroke:black"/>
 	  </g>
 	</svg>
 
-      
-            <script>
-	var states = document.getElementsByClassName("state");
-
-	var pop = function() {
-	var id = this.getAttribute("id");
-
-	};
-
-
-var makenamepropper = function(state){
-	if( state == 'newyork'){
-	return "New York";
-}
-}
 	
+        <script>
 
-var mm = function(){ $.ajax({
-   url: "/info/",
-	type: "GET",
-	data: {'s':makenamepropper(this.getAttribute("id")),'y':document.getElementsByClassName("ui-slider-handle")[0].getAttribute("aria-valuenow")},
-	success: function(response){
-//	console.log(response.getElementById("stats"));
-//	document.getElementById("stats").innerHTML = response.getElementById("stats");
+	  var states = document.getElementsByClassName("state");
 
-var ss =  $($.parseHTML(response)).filter("#stats");
-console.log(ss); 
+	  var pop = function() {
+	  var id = this.getAttribute("id");
 
+	  };
+	  
 
-	}
-	});
-	};
+	  var mm = function(){
+	  console.log(this);
+	  $.ajax({
+	  url: "/info/",
+	  type: "GET",
+	  data: {'s':this.getAttribute("id"),'y':document.getElementsByClassName("ui-slider-handle")[0].getAttribute("aria-valuenow")},
+	  success: function(response){
+	  document.getElementById("stats").innerHTML = response;
+	  //console.log(response);
+	  //document.getElementById("all").innerHTML=response;
+	  }
+	  });
+	  };
+
+	  
+
+	  //alert(attribute);
+	  //console.log(states);
+
+	  for (var i = 0; i < states.length; i++) {
+
+			      var st = states[i];
+			      st.addEventListener('mouseover',mm);
+			      }
+			      
+			      //var n=document.getElementById("Maine");
+			      //n.addEventListener('click',mm);
+
+			      </script>
 
 	
-
-	//alert(attribute);
 	
-
-	for (var i = 0; i < states.length; i++) {
-			    states[i].addEventListener('click', mm, false);
-			    }
-			    </script>
-
-      
-	
-    </div>
-    <svg>
-      <div id="stats">
-		<h2><center>Info</center></h2>
-	{% for stat in info %}
-	<li style="list-style-type: none;"><center> {{stat}} </center></li>
-	{% endfor %}
       </div>
-    </svg>
-    <div id="dObj" style="display: none;"> {{ dObj }} </div>
-    <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
-    <script src="../static/js.js"></script>
-    <script src="static/js.js"></script>
-  </body>
+      <svg>
+	<div id="stats">
+	  <h2><center>Info</center></h2>
+	  {% for stat in info %}
+	  <li style="list-style-type: none;"><center> {{stat}} </center></li>
+	  {% endfor %}
+	</div>
+      </svg>
+      <div id="dObj" style="display: none;"> {{ dObj }} </div>
+      <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+      <script src="../static/js.js"></script>
+      <script src="static/js.js"></script>
+    </body>
     <script type="text/javascript">
-	var svg = d3.select("svg")
+      var svg = d3.select("svg")
       .call(d3.behavior.zoom().scaleExtent([0.76, 3]).on("zoom", function () {
-        svg.select("g").attr("transform", "translate(" + d3.event.translate + ")" + " scale(" + d3.event.scale + ")")
+      svg.select("g").attr("transform", "translate(" + d3.event.translate + ")" + " scale(" + d3.event.scale + ")")
       }))
-  </script>
-</html>
+    </script>
+
+  </html>
+</div>

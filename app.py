@@ -1,5 +1,6 @@
 print "working?"
-from flask import Flask, render_template, redirect, url_for, request, jsonify
+from flask import Flask, render_template, redirect, url_for, request, jsonify, json
+import sys
 import csv
 
 app = Flask(__name__)
@@ -53,7 +54,12 @@ def getInfo():
     
 @app.route("/info/", methods=['GET'])
 def returnInfo():
-    return render_template('main.html', info = readStateByYear(state, year))
+    state = request.args.get('s')
+    year = request.args.get('y')
+    print state
+    print year
+    return render_template('stats.html', info = readStateByYear(state, year))
+#    return render_template('main.html', info = readStateByYear(state, year))
 
 # returns a list of all the stats for a state in a given year
 def readStateByYear(s, y):
