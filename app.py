@@ -6,7 +6,7 @@ app = Flask(__name__)
 app.secret_key = 'imagine-you-are-a-light-molecule...'
 
 state = 'New York'
-year = '2010'
+year = '1977'
 
 @app.route("/", methods = ['GET', 'POST'])
 # displays the data visualization
@@ -70,23 +70,46 @@ def readStateByYear(s, y):
         ctr += 1
     return arr
 
+@app.route("/go/", methods=['POST'])
+def go():
+    if (int(getYear()) < 2013):
+        upYear()
+    else:
+        setYear("1977")
+    return render_template('main.html', info = readStateByYear(state, year), dObj = getInfo(), year = year, state = state)
+
 # returns year
 def getYear():
+    global year
     return year
 
 # updates year
 def setYear(y):
+    global year
     year = y
+    return year
+
+# increments year by 1
+def upYear():
+    y = int(getYear())
+    y += 1
+    setYear(str(y))
     return y
+
+print year
+upYear()
+print year
 
 # returns state
 def getState():
+    global state
     return state
 
 # updates state
 def setState(s):
+    global state
     state = s
-    return s
+    return state
 
 if __name__ == "__main__":
     app.debug = True

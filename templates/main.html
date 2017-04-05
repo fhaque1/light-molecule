@@ -7,6 +7,7 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="../static/css.css">
     <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
     <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
@@ -18,13 +19,13 @@
 
 
   <body>
-    <center> <h1>Job Growth: 1977-2013</h1> </center>  
+    <center> <h1> <i class="fa fa-play-circle" id="play" style="font-size:35px;color:red"></i> Job Growth: 1977-2013 </h1>  </center>  
     <div id="map">
       <center>
 	<div data-role="main" class="ui-content">
 	  <form method="post" action="/slider/">
 	    <input type="range" id="year" value="{{year}}" min="1977" max="2013" data-popup-enabled="true">
-	  </form>
+	  </form>	 
 	</div>
 	<br>
 	<svg id="america" height="800" width="1300" style="border:1px solid white;">
@@ -95,6 +96,7 @@
 	</svg>
       </center>
 
+      <!--
             <script>
 	var classname = document.getElementsByClassName("state");
 
@@ -131,7 +133,7 @@ var mm = function(){ $.ajax({
 			    };
 			    </script>
 
-      
+      --> 
 	
     </div>
     <svg>

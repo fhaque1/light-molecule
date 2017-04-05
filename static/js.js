@@ -37,3 +37,15 @@ window.onload = function(){
     document.getElementsByTagName("body")[0].addEventListener('mouseup',updateMap);
 };
 
+
+var play = function() {
+    $.ajax({
+	type: "POST",
+	url: "/go/",
+    });
+
+    updateMap();
+};
+
+var playbtn = document.getElementById("play");
+playbtn.addEventListener("click", play);
