@@ -1,0 +1,6 @@
+Changes:
+
+- We ended up including most of the potential features we had anticipated, but we did not end up using the data to project predictions.
+- We tried to add a feature that we did not initially plan for (autoplay button), but it did not work out. 
+- Some of the shifts were not as dramatic as we expected, we had to account for that in the color scheme.
+- Overall, we did not diverge too greatly from the design document. 
