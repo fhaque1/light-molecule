@@ -15,6 +15,14 @@ jessicaY -- 2017-03-30 12:15
 	Created a basic flask app and the template for the data visualization
 	Wrote functions to read data from the csv and return it as a list to the template
 
+jessicaY -- 2017-03-30 14:19
+	Added d3 src, created devlog
+	Added slider to the template
+
+jessicaY -- 2017-03-31 06:51 
+	Wrote function to send data as json to the template
+	Added a hidden div for the data
+
 farhanH -- 2017-03-31 14:30
 	Created a gradient color function
 
@@ -27,12 +35,26 @@ nicoleC -- 2017-04-01 20:00
 maxB -- 2017-04-02 11:00
      	Created function updateMap() which adjusts color and size based upon the value present in the slider
 
+jessicaY -- 2017-04-02 17:33
+	Fixed slider to take variable year passed from the app
+	Added get/set helper functions for the global variables state and year
+
 nicoleC -- 2017-04-03 14:45
 	Tweaked map and states' placements
 	Started map legend	
 
 farhanH -- 2017-04-03 22:35
 	Made map zoomable
+
+jessicaY -- 2017-04-04 05:37
+	Fixed jinja formatting and app routes
+	Wrote css for the slider
+
+jessicaY -- 2017-04-04 14:15
+	Fixed app routes and syntax error
+
+jessicaY -- 2017-04-04 21:52
+	Added play button for the slider and started writing ajax/js for it
 
 nicoleC -- 2017-04-05 00:45
 	Made states hovery
@@ -44,3 +66,6 @@ farhanH -- 2017-04-05 01:00
 MaxB -- 2017-04-05 01:00
 	Labels now show up and move as each state grows and shrinks
 	the legend shows up and works
+
+jessicaY -- 2017-04-05 01:46
+	Fixed play button for slider

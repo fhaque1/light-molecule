@@ -105,4 +105,3 @@ var play = function(e) {
 
 var playbtn = document.getElementById("play");
 playbtn.addEventListener("click", repeat);
-
