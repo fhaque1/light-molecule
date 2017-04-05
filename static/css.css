@@ -1,3 +1,15 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+body{
+	font-family: 'Roboto', sans-serif;
+	background-color: #DAE5F3;
+	
+}
+
+.ui-content{
+	padding-top: 0px;
+}
+
 .ui-slider-popup {
     width: 64px;
     height: 44px;
@@ -20,5 +32,36 @@
 }
 
 .ui-slider-track {
-    width: 75%;
+    width: 95%;
+}
+
+h1{
+	color: #005089;
+}
+
+#stats {
+    position: absolute;
+    bottom: 0;
+    right: 1%;
+    width: 300px;
+	height: 78%;
+    border: 3px solid #005089;
+}
+
+#stats h2 {
+  padding:4px;
+  color:#fff;
+  margin:0;
+  background-color:#0094ff;
+  font-size:12pt;
+}
+
+#america {
+	position: absolute;
+	bottom: 0;
+	left: 1%;
+	background-color: lightsteelblue;
+	width: 77%; 
+	height: 78%;
+	border: 3px solid #005089;
 }
