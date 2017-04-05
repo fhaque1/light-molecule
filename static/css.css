@@ -46,6 +46,7 @@ h1{
     width: 300px;
 	height: 78%;
     border: 3px solid #005089;
+	border-radius: 25px;
 }
 
 #stats h2 {
@@ -54,6 +55,7 @@ h1{
   margin:0;
   background-color:#0094ff;
   font-size:12pt;
+  border-radius: 20px 20px 0px 0px
 }
 
 #america {
@@ -64,4 +66,5 @@ h1{
 	width: 77%; 
 	height: 78%;
 	border: 3px solid #005089;
+	border-radius: 25px;
 }
