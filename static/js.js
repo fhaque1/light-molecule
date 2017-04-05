@@ -63,15 +63,46 @@ window.onload = function(){
     document.getElementsByTagName("body")[0].addEventListener('mouseup',updateMap);
 };
 
+var start = setInterval(hplay, 2000);
 
-var play = function() {
-    $.ajax({
-	type: "POST",
-	url: "/go/",
-    });
+var stop = function() {
+    clearInterval(start);
+};
+
+var repeat = function(e) {
+    try {
+	start;
+    } catch (err) {
+	if (err) {
+	    stop();
+	    throw new Error("Stopping the function!");
+	}
+    }
+};
+    
+var hplay = function(e) {
+    setTimeout(play, 1000);
+};
+
+var play = function(e) {
+    // map
+    var e1 = document.getElementsByClassName("ui-slider-handle")[0]
+    var d1 = e1.getAttribute("aria-valuenow")
+    var nd1 = parseInt(d1)+1
+    //e.g. style="left: 97.2222%;"
+    var per = ( (nd1 - 1977)/36 ) * 100
+    var str = "left: " + per + "%;"
+    e1.setAttribute("aria-valuenow", nd1.toString())
+    e1.setAttribute("style", str)
+    
+    // year in box
+    var e2 = document.getElementById("year")
+    e2.setAttribute("value", nd1.toString())
 
     updateMap();
 };
 
+
 var playbtn = document.getElementById("play");
-playbtn.addEventListener("click", play);
+playbtn.addEventListener("click", repeat);
+
