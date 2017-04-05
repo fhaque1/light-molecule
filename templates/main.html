@@ -26,7 +26,7 @@
 	  </form>
 	</div>
 	<br>
-	<svg id="america" style="border:1px solid white;">
+	<svg id="america"">
 		<g>
 	  <line x1="20" y1="20" x2="50" y2="20" stroke-width="30" stroke="black"/> 
 	  <line x1="70" y1="20" x2="100" y2="20" stroke-width="30"  stroke="black" />  
@@ -134,6 +134,7 @@ var mm = function(){ $.ajax({
     </div>
     <svg>
       <div id="stats">
+		<h2><center>Info</center></h2>
 	{% for stat in info %}
 	<li style="list-style-type: none;"><center> {{stat}} </center></li>
 	{% endfor %}
@@ -145,12 +146,8 @@ var mm = function(){ $.ajax({
     <script src="static/js.js"></script>
   </body>
     <script type="text/javascript">
-	var setInit = function() { 
-		d3.behavior.zoom().scale(0.75);
-    };
-	setInit();
 	var svg = d3.select("svg")
-      .call(d3.behavior.zoom().on("zoom", function () {
+      .call(d3.behavior.zoom().scaleExtent([0.76, 3]).on("zoom", function () {
         svg.select("g").attr("transform", "translate(" + d3.event.translate + ")" + " scale(" + d3.event.scale + ")")
       }))
   </script>
