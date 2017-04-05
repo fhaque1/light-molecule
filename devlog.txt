@@ -41,4 +41,6 @@ nicoleC -- 2017-04-05 00:45
 farhanH -- 2017-04-05 01:00
 	Did css styling and aesthetic-work
 
-
+MaxB -- 2017-04-05 01:00
+	Labels now show up and move as each state grows and shrinks
+	the legend shows up and works
