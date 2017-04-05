@@ -20,14 +20,13 @@
   <body>
     <center> <h1>Job Growth: 1977-2013</h1> </center>  
     <div id="map">
-      <center>
 	<div data-role="main" class="ui-content">
 	  <form method="post" action="/slider/">
 	    <input type="range" id="year" value="{{year}}" min="1977" max="2013" data-popup-enabled="true">
 	  </form>
 	</div>
 	<br>
-	<svg id="america" height="800" width="1300" style="border:1px solid white;">
+	<svg id="america" style="border:1px solid white;">
 		<g>
 	  <line x1="20" y1="20" x2="50" y2="20" stroke-width="30" stroke="black"/> 
 	  <line x1="70" y1="20" x2="100" y2="20" stroke-width="30"  stroke="black" />  
@@ -93,7 +92,6 @@
 	  <rect class="state" id="wyoming" x="360" y="320" width="50" height="50" onmouseover="evt.target.setAttribute('opacity', '0.5');" onmouseout="evt.target.setAttribute('opacity','1)');" style="fill:white;stroke-width:2;stroke:black"/>
 	  </g>
 	</svg>
-      </center>
 
             <script>
 	var classname = document.getElementsByClassName("state");
@@ -137,7 +135,7 @@ var mm = function(){ $.ajax({
     <svg>
       <div id="stats">
 	{% for stat in info %}
-	<li> {{stat}} </li>
+	<li style="list-style-type: none;"><center> {{stat}} </center></li>
 	{% endfor %}
       </div>
     </svg>
@@ -147,7 +145,11 @@ var mm = function(){ $.ajax({
     <script src="static/js.js"></script>
   </body>
     <script type="text/javascript">
-    var svg = d3.select("svg")
+	var setInit = function() { 
+		d3.behavior.zoom().scale(0.75);
+    };
+	setInit();
+	var svg = d3.select("svg")
       .call(d3.behavior.zoom().on("zoom", function () {
         svg.select("g").attr("transform", "translate(" + d3.event.translate + ")" + " scale(" + d3.event.scale + ")")
       }))
