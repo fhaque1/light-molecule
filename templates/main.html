@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<div id="all">
   <html lang="en">
     <head>
       <meta charset="utf-8">
@@ -31,18 +30,7 @@
 	</div>
 	<br>
 	<svg id="america"">
-	  <g>
-	    <line x1="20" y1="20" x2="50" y2="20" stroke-width="30" stroke="black"/> 
-	    <line x1="70" y1="20" x2="100" y2="20" stroke-width="30"  stroke="black" />  
-	    <line x1="120" y1="20" x2="150" y2="20" stroke-width="30"   stroke="black"/>  
-	    <line x1="170" y1="20" x2="200" y2="20" stroke-width="30"  stroke="black" />  
-	    <line x1="220" y1="20" x2="250" y2="20" stroke-width="30" stroke="black" />  
-	    <line x1="270" y1="20" x2="300" y2="20" stroke-width="30" stroke="black" />  
-	    <line x1="320" y1="20" x2="350" y2="20" stroke-width="30" stroke="black" />  
-	    <line x1="370" y1="20" x2="400" y2="20" stroke-width="30" stroke="black" />  
-	    <line x1="420" y1="20" x2="450" y2="20" stroke-width="30" stroke="black" />  
-	    <line x1="470" y1="20" x2="500" y2="20" stroke-width="30" stroke="black" />  
-
+	    <g>
 	    <rect class="state" id="Alabama" x="870" y="610" width="50" height="50" onmouseover="evt.target.setAttribute('opacity', '0.5');" onmouseout="evt.target.setAttribute('opacity','1)');" style="fill:white;stroke-width:2;stroke:black"/>
 																														 <rect class="state" id="Alaska" x="20" y="610" width="50" height="50" onmouseover="evt.target.setAttribute('opacity', '0.5');" onmouseout="evt.target.setAttribute('opacity','1)');" style="fill:white;stroke-width:2;stroke:black"/>
 																														 <rect class="state" id="Arizona" x="300" y="570" width="50" height="50" onmouseover="evt.target.setAttribute('opacity', '0.5');" onmouseout="evt.target.setAttribute('opacity','1)');" style="fill:white;stroke-width:2;stroke:black"/>
@@ -95,18 +83,23 @@
 																														 <rect class="state" id="Wisconsin" x="760" y="220" width="50" height="50" onmouseover="evt.target.setAttribute('opacity', '0.5');" onmouseout="evt.target.setAttribute('opacity','1)');" style="fill:white;stroke-width:2;stroke:black"/>
 																														 <rect class="state" id="Wyoming" x="360" y="320" width="50" height="50" onmouseover="evt.target.setAttribute('opacity', '0.5');" onmouseout="evt.target.setAttribute('opacity','1)');" style="fill:white;stroke-width:2;stroke:black"/>
 	  </g>
-	</svg>
+	  
+	    <line x1="20" y1="20" x2="50" y2="20" stroke-width="30" stroke="black"/> 
+	    <line x1="70" y1="20" x2="100" y2="20" stroke-width="30"  stroke="black" />  
+	    <line x1="120" y1="20" x2="150" y2="20" stroke-width="30"   stroke="black"/>  
+	    <line x1="170" y1="20" x2="200" y2="20" stroke-width="30"  stroke="black" />  
+	    <line x1="220" y1="20" x2="250" y2="20" stroke-width="30" stroke="black" />  
+	    <line x1="270" y1="20" x2="300" y2="20" stroke-width="30" stroke="black" />  
+	    <line x1="320" y1="20" x2="350" y2="20" stroke-width="30" stroke="black" />  
+	    <line x1="370" y1="20" x2="400" y2="20" stroke-width="30" stroke="black" />  
+	    <line x1="420" y1="20" x2="450" y2="20" stroke-width="30" stroke="black" />  
+	    <line x1="470" y1="20" x2="500" y2="20" stroke-width="30" stroke="black" />  
 
+	</svg>
 	
         <script>
 
 	  var states = document.getElementsByClassName("state");
-
-	  var pop = function() {
-	  var id = this.getAttribute("id");
-
-	  };
-	  
 
 	  var mm = function(){
 	  console.log(this);
@@ -116,16 +109,9 @@
 	  data: {'s':this.getAttribute("id"),'y':document.getElementsByClassName("ui-slider-handle")[0].getAttribute("aria-valuenow")},
 	  success: function(response){
 	  document.getElementById("stats").innerHTML = response;
-	  //console.log(response);
-	  //document.getElementById("all").innerHTML=response;
 	  }
 	  });
 	  };
-
-	  
-
-	  //alert(attribute);
-	  //console.log(states);
 
 	  for (var i = 0; i < states.length; i++) {
 
@@ -133,9 +119,6 @@
 			      st.addEventListener('mouseover',mm);
 			      }
 			      
-			      //var n=document.getElementById("Maine");
-			      //n.addEventListener('click',mm);
-
 			      </script>
 
 	
@@ -162,4 +145,3 @@
     </script>
 
   </html>
-</div>
