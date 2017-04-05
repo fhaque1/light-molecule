@@ -19,7 +19,7 @@ var updateMap = function(e){
 	if(d < 0){
 	    return colorSwitch(-1 * d, 10, 255,0,0);
 	}else{
-	    return colorSwitch(d,30,0,255,0);
+	    return colorSwitch(d,10,0,255,0);
 	}
     });
 
