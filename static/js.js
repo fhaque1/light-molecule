@@ -23,7 +23,7 @@ var updateMap = function(e){
 	}
     });
 
-    var text = d3.select("[id='america']").selectAll("text").data(names).enter().append("text");
+    var text = d3.select("[id='america']").select("g").selectAll("text").data(names).enter().append("text");
     text
 	.attr("x", function(d,i) { return squares[0][i].x.animVal.value + (squares[0][i].height.animVal.value /2 );})
 	.attr("y", function(d,i) { return squares[0][i].y.animVal.value + (squares[0][i].height.animVal.value /2 );})
