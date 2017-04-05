@@ -12,6 +12,8 @@ var updateMap = function(e){
     console.log(data);
     var names = ["AL","AK","AZ","AR","CA","CO","CT","DE","DC","FL","GA","HI","ID","IL","IN","IA","KS","KY","LA","ME","MD","MA","MI","MN","MS","MO","MT","NE","NV","NH","NJ","NM","NY","NC","ND","OH","OK","OR","PA","RI","SC","SD","TN","TX","UT","VT","VA","WA","WV","WI","WY"];
     var squares = d3.selectAll("rect");
+
+    
     squares.data(data);
     console.log(squares);
     squares.attr("style", "").attr("stroke","#808080");
@@ -24,15 +26,17 @@ var updateMap = function(e){
     });
 
     var text = d3.select("[id='america']").select("g").selectAll("text").data(names).enter().append("text");
-    text
-	.attr("x", function(d,i) { return squares[0][i].x.animVal.value + (squares[0][i].height.animVal.value /2 );})
-	.attr("y", function(d,i) { return squares[0][i].y.animVal.value + (squares[0][i].height.animVal.value /2 );})
+    var text = d3.selectAll("text");
+    text.transition().duration(2000)
+	.attr("x", function(d,i) { return squares[0][i].x.animVal.value + (50 * (1 + (data[i] /20) ) /2 );})
+	.attr("y", function(d,i) { return squares[0][i].y.animVal.value + ( 50 * (1 + (data[i] /20) )/2 );})
 	.attr("font-family", "sans-serif")
         .attr("font-size", "12px")
         .attr("fill", "black")
 	.attr("text-anchor", "middle")
 	.text( function(d){return d;});
     console.log(text);
+
 };
 
 window.onload = function(){
