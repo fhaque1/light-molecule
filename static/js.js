@@ -46,7 +46,7 @@ var updateMap = function(e){
 	    return colorSwitch(d,10,0,255,0);
 	}
     });
-    var legstxt = d3.select("[id='america']").select("g").selectAll("text[class=legend]").data(legendnames).enter().append('text').attr('class','legend');
+    var legstxt = d3.select("[id='america']").selectAll("text[class=legend]").data(legendnames).enter().append('text').attr('class','legend');
     var legst = d3.selectAll("text[class=legend]")
 	.attr("x", function(d,i) { return (legs[0][i].x1.animVal.value + legs[0][i].x2.animVal.value ) /2;})
 	.attr("y", function(d,i) { return (legs[0][i].y1.animVal.value + legs[0][i].y2.animVal.value ) /2;})
