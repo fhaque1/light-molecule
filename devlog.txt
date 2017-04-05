@@ -2,13 +2,13 @@
 firstL -- 2017-03-Date Time
 	What was accomplished
 
-Group -- 2017-03-26 22:01
+group -- 2017-03-26 22:01
 	Sketched out the visualization of our data and how we want it to be presented
 
-Group -- 2017-03-27 20:29 
+group -- 2017-03-27 20:29 
 	Updated our README to explain what our project can do and why it is important
 
-Group -- 2017-03-28 14:46
+group -- 2017-03-28 14:46
 	Finished our design plan for the project
 
 jessicaY -- 2017-03-30 12:15
@@ -28,10 +28,17 @@ maxB -- 2017-04-02 11:00
      	Created function updateMap() which adjusts color and size based upon the value present in the slider
 
 nicoleC -- 2017-04-03 14:45
-	svg aesthetics
-	"squares" for legend
-	       hover states	
+	Tweaked map and states' placements
+	Started map legend	
 
 farhanH -- 2017-04-03 22:35
 	Made map zoomable
+
+nicoleC -- 2017-04-05 00:45
+	Made states hovery
+	Info box updates as mouse hovers over states
+
+farhanH -- 2017-04-05 01:00
+	Did css styling and aesthetic-work
+
 
