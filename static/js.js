@@ -25,12 +25,14 @@ var updateMap = function(e){
 
     var text = d3.select("[id='america']").selectAll("text").data(names).enter().append("text");
     text
-	.attr("x", function(d,i) { return squares[0][i].x.animVal.value;})
-	.attr("y", function(d,i) { return squares[0][i].y.animVal.value;})
+	.attr("x", function(d,i) { return squares[0][i].x.animVal.value + (squares[0][i].height.animVal.value /2 );})
+	.attr("y", function(d,i) { return squares[0][i].y.animVal.value + (squares[0][i].height.animVal.value /2 );})
 	.attr("font-family", "sans-serif")
         .attr("font-size", "12px")
         .attr("fill", "black")
-	.attr("text-anchor", "middle"); 
+	.attr("text-anchor", "middle")
+	.text( function(d){return d;});
+    console.log(text);
 };
 
 window.onload = function(){
