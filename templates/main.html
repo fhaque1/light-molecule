@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<div id="all">
   <html lang="en">
     <head>
       <meta charset="utf-8">
@@ -97,17 +96,10 @@
 	    <line x1="470" y1="20" x2="500" y2="20" stroke-width="30" stroke="black" />  
 
 	</svg>
-
 	
         <script>
 
 	  var states = document.getElementsByClassName("state");
-
-	  var pop = function() {
-	  var id = this.getAttribute("id");
-
-	  };
-	  
 
 	  var mm = function(){
 	  console.log(this);
@@ -117,16 +109,9 @@
 	  data: {'s':this.getAttribute("id"),'y':document.getElementsByClassName("ui-slider-handle")[0].getAttribute("aria-valuenow")},
 	  success: function(response){
 	  document.getElementById("stats").innerHTML = response;
-	  //console.log(response);
-	  //document.getElementById("all").innerHTML=response;
 	  }
 	  });
 	  };
-
-	  
-
-	  //alert(attribute);
-	  //console.log(states);
 
 	  for (var i = 0; i < states.length; i++) {
 
@@ -134,9 +119,6 @@
 			      st.addEventListener('mouseover',mm);
 			      }
 			      
-			      //var n=document.getElementById("Maine");
-			      //n.addEventListener('click',mm);
-
 			      </script>
 
 	
@@ -163,4 +145,3 @@
     </script>
 
   </html>
-</div>

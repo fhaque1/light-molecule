@@ -56,10 +56,7 @@ def getInfo():
 def returnInfo():
     state = request.args.get('s')
     year = request.args.get('y')
-    print state
-    print year
     return render_template('stats.html', info = readStateByYear(state, year))
-#    return render_template('main.html', info = readStateByYear(state, year))
 
 # returns a list of all the stats for a state in a given year
 def readStateByYear(s, y):
