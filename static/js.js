@@ -63,6 +63,8 @@ window.onload = function(){
     document.getElementsByTagName("body")[0].addEventListener('mouseup',updateMap);
 };
 
+/*
+// supposed to be autoplay for slider, but not functional
 var start = setInterval(hplay, 2000);
 
 var stop = function() {
@@ -105,3 +107,4 @@ var play = function(e) {
 
 var playbtn = document.getElementById("play");
 playbtn.addEventListener("click", repeat);
+*/

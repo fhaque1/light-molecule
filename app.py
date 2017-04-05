@@ -99,10 +99,6 @@ def upYear():
     setYear(str(y))
     return y
 
-print year
-upYear()
-print year
-
 # returns state
 def getState():
     global state
